@@ -1,6 +1,10 @@
 import styled from 'styled-components';
 import { Typography } from 'components/atoms/Typography/Typography';
 
+interface ImageProps {
+  imageUrl: string;
+}
+
 export const Wrapper = styled.article`
   overflow: hidden;
   position: relative;
@@ -23,10 +27,6 @@ export const InnerWrapper = styled.article`
   height: 100%;
   border-radius: 32px;
 `;
-
-interface ImageProps {
-  imageUrl: string;
-}
 
 export const Image = styled.div<ImageProps>`
   width: 100%;
