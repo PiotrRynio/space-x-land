@@ -2,7 +2,7 @@ import { createGlobalStyle } from 'styled-components';
 import { theme } from './theme';
 
 export const GlobalStyles = createGlobalStyle`
-  @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
 
   *, *::before, *::after {
     box-sizing: border-box;

@@ -42,8 +42,9 @@ export const theme: any = {
     normal: 'normal',
   },
   fontWeight: {
-    medium: 'medium',
-    regular: 'regular',
+    regular: '400',
+    medium: '500',
+    bold: '700',
   },
   lineHeight: {
     sm: '16px',
@@ -84,7 +85,7 @@ export const theme: any = {
         color: ${() => theme.colors.darkHard};
         text-transform: ${() => theme.textTransform.upperCase};
       `,
-      h4: css`
+      heading4: css`
         font-family: ${() => theme.fontFamily.primary};
         font-style: ${() => theme.fontStyle.normal};
         font-weight: ${() => theme.fontWeight.regular};
@@ -93,7 +94,7 @@ export const theme: any = {
         letter-spacing: ${() => theme.letterSpacing.xxs};
         color: ${() => theme.colors.darkHard};
       `,
-      h5: css`
+      heading5: css`
         font-family: ${() => theme.fontFamily.primary};
         font-style: ${() => theme.fontStyle.normal};
         font-weight: ${() => theme.fontWeight.regular};
@@ -102,7 +103,7 @@ export const theme: any = {
         letter-spacing: ${() => theme.letterSpacing.sm};
         color: ${() => theme.colors.primary};
       `,
-      h6: css`
+      heading6: css`
         font-family: ${() => theme.fontFamily.primary};
         font-style: ${() => theme.fontStyle.normal};
         font-weight: ${() => theme.fontWeight.medium};
@@ -111,7 +112,7 @@ export const theme: any = {
         letter-spacing: ${() => theme.letterSpacing.xs};
         color: ${() => theme.colors.primary};
       `,
-      button: css`
+      buttonText: css`
         font-family: ${() => theme.fontFamily.primary};
         font-style: ${() => theme.fontStyle.normal};
         font-weight: ${() => theme.fontWeight.medium};
@@ -119,6 +120,13 @@ export const theme: any = {
         line-height: ${() => theme.lineHeight.sm};
         letter-spacing: ${() => theme.letterSpacing.xl};
         color: ${() => theme.colors.primary};
+      `,
+    },
+    positions: {
+      center: css`
+        display: flex;
+        justify-content: center;
+        align-items: center;
       `,
     },
   },
