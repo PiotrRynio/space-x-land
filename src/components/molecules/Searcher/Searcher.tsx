@@ -9,15 +9,23 @@ import {
   SearchButton,
 } from './Searcher.styles';
 import { TypographyTag } from 'components/atoms/Typography/TypographyTags';
+import SearchedItemsList from 'components/molecules/SearchedItemsList/SearchedItemsList';
+import { useAppContext } from '../../../context/AppContext';
 
 const Searcher = () => {
-  const [textInput, setTextInput] = useState('');
+  const { searcherInputText, setSearcherInputText } = useAppContext();
+  const [isSearcherActive, setIsSearcherActive] = useState(false);
 
-  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setTextInput(event.target.value);
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) =>
+    setSearcherInputText(event.target.value);
+
+  const handleFocus = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setIsSearcherActive(true);
   };
 
-  const onClickButton = () => {};
+  const handleBlur = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setIsSearcherActive(false);
+  };
 
   return (
     <LabelWrapper>
@@ -25,16 +33,19 @@ const Searcher = () => {
         <LabelText typographyTag={TypographyTag.OVERLINE}>Search for a ship</LabelText>
         <SearchInput
           type="text"
-          value={textInput}
+          value={searcherInputText}
           onChange={handleChange}
           placeholder={`enter the model`}
+          onFocus={handleFocus}
+          onBlur={handleBlur}
         />
       </InnerWrapper>
-      <SearchButton onClick={onClickButton}>
+      <SearchButton>
         <SearchIconContainer>
           <SearchIcon />
         </SearchIconContainer>
       </SearchButton>
+      {isSearcherActive && <SearchedItemsList />}
     </LabelWrapper>
   );
 };

@@ -18,7 +18,7 @@ export const InnerWrapper = styled.div`
   justify-content: space-between;
   height: 100%;
   width: 100%;
-  padding: 16px 60px 16px 32px;
+  padding: 16px 90px 16px 32px;
 `;
 
 export const LabelText = styled(Typography)`
@@ -36,8 +36,8 @@ export const SearchInput = styled.input`
   }
 `;
 
-export const SearchButton = styled.button`
-  display: block;
+export const SearchButton = styled.div`
+  ${({ theme }) => theme.mixins.positions.center}
   position: absolute;
   top: 0;
   bottom: 0;

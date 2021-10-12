@@ -14,7 +14,7 @@ import { SpacecraftListItemProps } from './SpacecraftListItemProps';
 
 const SpacecraftListItem = ({
   articleText,
-  buttonLinkUrl,
+  externalLinkUrl,
   date,
   title,
   imageUrl,
@@ -31,7 +31,7 @@ const SpacecraftListItem = ({
         <StyledBody1 typographyTag={TypographyTag.BODY_1}>
           {articleText || 'No information in our API'}
         </StyledBody1>
-        <StyledButton href={buttonLinkUrl}>
+        <StyledButton href={externalLinkUrl}>
           <span>Read more</span>
         </StyledButton>
       </InnerWrapper>

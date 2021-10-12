@@ -4,5 +4,5 @@ export type SpacecraftListItemProps = {
   title: string;
   articleText: string;
   imageUrl: string;
-  buttonLinkUrl: string;
+  externalLinkUrl: string;
 };
