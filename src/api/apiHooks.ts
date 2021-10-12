@@ -1,6 +1,7 @@
 import { useQuery, UseQueryResult } from 'react-query';
 import { SpacecraftListItemProps } from 'components/molecules/SpacecraftListItem/SpacecraftListItemProps';
 import { SpacecraftListItemDto } from './SpacecraftListItemDto';
+
 const API_URL = 'https://api.spacex.land/rest/launches';
 
 export enum ErrorCodes {
@@ -21,7 +22,7 @@ export const useSpacecraftListItemProps = (
       date: new Date(item.launch_date_utc).toLocaleDateString('en-GB', { dateStyle: 'short' }),
       title: item.mission_name,
       articleText: item.details,
-      buttonLinkUrl: item.links.wikipedia,
+      externalLinkUrl: item.links.wikipedia,
       imageUrl: item.links.flickr_images[0] || item.links.mission_patch,
     }));
   });
