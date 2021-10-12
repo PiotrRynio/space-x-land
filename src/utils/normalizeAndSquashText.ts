@@ -1,2 +1,4 @@
+import { remove } from 'diacritics';
+
 export const normalizeAndSquashText = (text: string): string =>
-  text.trim().toLowerCase().replaceAll(' ', '');
+  remove(text.trim().toLowerCase().replaceAll(' ', ''));
