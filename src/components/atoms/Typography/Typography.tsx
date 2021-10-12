@@ -1,6 +1,7 @@
 import React from 'react';
 import { TypographyTag } from './TypographyTags';
 import { Body1, Body2, Overline, Heading4, Heading5, Heading6 } from './Typography.styles';
+
 export type TypographyProps = {
   typographyTag: TypographyTag;
   children: React.ReactNode;
