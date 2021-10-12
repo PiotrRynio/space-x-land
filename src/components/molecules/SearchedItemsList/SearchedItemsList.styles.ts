@@ -19,9 +19,14 @@ export const Wrapper = styled.ul`
   padding: 32px 16px 16px;
   border-radius: 32px;
   background: ${({ theme }) => theme.colors.lightHard};
+  list-style: none;
 `;
 
 export const ListItem = styled.li`
+  height: 100%;
+`;
+
+export const ListItemLink = styled.a`
   box-sizing: content-box;
   display: flex;
   align-items: center;
@@ -29,6 +34,7 @@ export const ListItem = styled.li`
   height: 48px;
   padding: 8px 16px;
   border-radius: 32px;
+  text-decoration: none;
   cursor: pointer;
 
   &:hover {
@@ -43,6 +49,7 @@ export const ListItemImage = styled.div<ImageProps>`
   background: url(${({ imageUrl }) => imageUrl}) no-repeat;
   background-size: cover;
 `;
+
 export const ListItemTitle = styled(Typography)`
   font-weight: ${({ theme }) => theme.fontWeight.bold};
 `;

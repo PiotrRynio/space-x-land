@@ -7,6 +7,8 @@ import {
   InnerWrapper,
   SearchIcon,
   SearchButton,
+  BlurWrapper,
+  PlusIcon,
 } from './Searcher.styles';
 import { TypographyTag } from 'components/atoms/Typography/TypographyTags';
 import SearchedItemsList from 'components/molecules/SearchedItemsList/SearchedItemsList';
@@ -16,37 +18,44 @@ const Searcher = () => {
   const { searcherInputText, setSearcherInputText } = useAppContext();
   const [isSearcherActive, setIsSearcherActive] = useState(false);
 
-  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) =>
-    setSearcherInputText(event.target.value);
-
-  const handleFocus = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setIsSearcherActive(true);
-  };
-
-  const handleBlur = (event: React.ChangeEvent<HTMLInputElement>) => {
+  const resetAndBlurSearcher = () => {
+    setSearcherInputText('');
     setIsSearcherActive(false);
   };
 
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) =>
+    setSearcherInputText(event.target.value);
+
+  const handleFocus = () => {
+    setIsSearcherActive(true);
+  };
+
+  const handlerBlurWrapperClick = () => {
+    resetAndBlurSearcher();
+  };
+
   return (
-    <LabelWrapper>
-      <InnerWrapper>
-        <LabelText typographyTag={TypographyTag.OVERLINE}>Search for a ship</LabelText>
-        <SearchInput
-          type="text"
-          value={searcherInputText}
-          onChange={handleChange}
-          placeholder={`enter the model`}
-          onFocus={handleFocus}
-          onBlur={handleBlur}
-        />
-      </InnerWrapper>
-      <SearchButton>
-        <SearchIconContainer>
-          <SearchIcon />
-        </SearchIconContainer>
-      </SearchButton>
-      {isSearcherActive && <SearchedItemsList />}
-    </LabelWrapper>
+    <>
+      <LabelWrapper>
+        <InnerWrapper>
+          <LabelText typographyTag={TypographyTag.OVERLINE}>Search for a ship</LabelText>
+          <SearchInput
+            type="text"
+            value={searcherInputText}
+            onChange={handleChange}
+            placeholder={`enter the model`}
+            onFocus={handleFocus}
+          />
+        </InnerWrapper>
+        <SearchButton>
+          <SearchIconContainer isSearcherActive={isSearcherActive}>
+            {isSearcherActive ? <PlusIcon /> : <SearchIcon />}
+          </SearchIconContainer>
+        </SearchButton>
+        {isSearcherActive && <SearchedItemsList resetAndBlurSearcher={resetAndBlurSearcher} />}
+      </LabelWrapper>
+      <BlurWrapper onClick={handlerBlurWrapperClick} isSearcherActive={isSearcherActive} />
+    </>
   );
 };
 

@@ -1,8 +1,14 @@
 import styled from 'styled-components';
 import Typography from 'components/atoms/Typography/Typography';
 import { FaSearch } from 'react-icons/fa';
+import { AiOutlinePlus } from 'react-icons/ai';
+
+interface SearcherStylesProps {
+  isSearcherActive: boolean;
+}
 
 export const LabelWrapper = styled.label`
+  z-index: 10;
   position: relative;
   height: 66px;
   width: 100%;
@@ -48,7 +54,7 @@ export const SearchButton = styled.div`
   cursor: pointer;
 `;
 
-export const SearchIconContainer = styled.div`
+export const SearchIconContainer = styled.div<SearcherStylesProps>`
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -56,11 +62,26 @@ export const SearchIconContainer = styled.div`
   width: 48px;
   padding: 0 15px;
   border-radius: 50%;
-  background: ${({ theme }) => theme.colors.secondary};
+  background-color: ${({ theme, isSearcherActive }) =>
+    isSearcherActive ? theme.colors.primary : theme.colors.secondary};
 `;
 
 export const SearchIcon = styled(FaSearch)`
   height: 18px;
   width: 18px;
   color: ${({ theme }) => theme.colors.lightHard};
+`;
+
+export const PlusIcon = styled(AiOutlinePlus)`
+  height: 18px;
+  width: 18px;
+  transform: rotate(45deg);
+  color: ${({ theme }) => theme.colors.darkMedium};
+`;
+
+export const BlurWrapper = styled.div<SearcherStylesProps>`
+  z-index: 9;
+  position: fixed;
+  inset: 0;
+  display: ${({ isSearcherActive }) => (isSearcherActive ? 'block' : 'none')};
 `;
