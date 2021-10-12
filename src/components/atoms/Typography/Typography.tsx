@@ -4,7 +4,7 @@ import { Body1, Body2, Overline, Heading4, Heading5, Heading6 } from './Typograp
 
 export type TypographyProps = {
   typographyTag: TypographyTag;
-  children: React.ReactNode;
+  children?: React.ReactNode;
 };
 
 const renderTypography = ({ typographyTag, children, ...props }: TypographyProps) => {
