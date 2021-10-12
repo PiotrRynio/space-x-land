@@ -15,10 +15,10 @@ const queryClient = new QueryClient();
 function App() {
   return (
     <QueryClientProvider client={queryClient}>
-      <AppProvider>
-        <Router>
-          <ThemeProvider theme={theme}>
-            <GlobalStyles />
+      <ThemeProvider theme={theme}>
+        <GlobalStyles />
+        <AppProvider>
+          <Router>
             <Wrapper>
               <BackgroundWrapper>
                 <NavWrapper>
@@ -29,9 +29,9 @@ function App() {
                 </MainContentWrapper>
               </BackgroundWrapper>
             </Wrapper>
-          </ThemeProvider>
-        </Router>
-      </AppProvider>
+          </Router>
+        </AppProvider>
+      </ThemeProvider>
     </QueryClientProvider>
   );
 }

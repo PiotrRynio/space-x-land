@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useMemo } from 'react';
 import ReactPaginate from 'react-paginate';
 import { usePageParams } from 'hooks/usePageParams';
 import { useAppContext } from 'context/AppContext';
@@ -10,8 +10,11 @@ const Paginate = () => {
   const { data } = useSpacecraftListItemProps();
   const { pagesNumber, setPagesNumber, itemsNumberOnPage } = useAppContext();
 
-  const newPagesNumber = data ? Math.ceil(data.length / itemsNumberOnPage) : 1;
-  setPagesNumber(newPagesNumber);
+  const newPagesNumber = useMemo(
+    () => (data ? Math.ceil(data.length / itemsNumberOnPage) : 1),
+    [data, itemsNumberOnPage],
+  );
+  useEffect(() => setPagesNumber(newPagesNumber));
 
   const onPageChangeHandle = ({ selected }: { selected: number }) => {
     setPageParams(selected + 1);
