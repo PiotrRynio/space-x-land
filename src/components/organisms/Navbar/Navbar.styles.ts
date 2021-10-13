@@ -8,23 +8,20 @@ interface NavbarStyles {
 }
 
 const rotateAnimationIn = keyframes`
-
    from {
      transform: rotate(0deg);
    }
    to {
      transform: rotate(360deg);
    }
- 
 `;
 
 const rotateAnimationOut = keyframes`
-
    from {
-     transform: rotate(0deg);
+     transform: rotate(360deg);
    }
    to {
-     transform: rotate(360deg);
+     transform: rotate(720deg);
    }
 `;
 
@@ -100,11 +97,11 @@ export const FavouritesButton = styled.button<NavbarStyles>`
   border-radius: 50%;
   background: ${({ theme, isFavoritesIconInverted }) =>
     isFavoritesIconInverted ? theme.colors.lightHard : theme.colors.primary};
-  transition: transform 0.5s;
   cursor: pointer;
 
   animation-name: ${rotateAnimationOut};
   animation-duration: 0.3s;
+  animation-timing-function: ease-out;
 
   :hover {
     background: ${({ theme, isFavoritesIconInverted }) =>
@@ -112,6 +109,7 @@ export const FavouritesButton = styled.button<NavbarStyles>`
 
     animation-name: ${rotateAnimationIn};
     animation-duration: 0.3s;
+    animation-timing-function: ease-out;
   }
 
   @media (min-width: ${({ theme }) => theme.breakpoints.xl}) {
