@@ -16,6 +16,11 @@ export const LabelWrapper = styled.label`
   margin: 48px 0 0;
   border-radius: 33px;
   background: ${({ theme }) => theme.colors.lightHard};
+
+  @media (min-width: ${({ theme }) => theme.breakpoints.md}) {
+    margin: 48px 0 0;
+    max-width: 737px;
+  }
 `;
 
 export const InnerWrapper = styled.div`

@@ -4,12 +4,7 @@ export const Wrapper = styled.div`
   position: relative;
   inset: 0;
   min-height: 100vh;
-  padding: 16px;
-
-  @media (min-width: ${({ theme }) => theme.breakpoints.md}) {
-    padding-right: 140px;
-    padding-left: 140px;
-  }
+  padding: 16px clamp(16px, 7.3%, 140px);
 `;
 
 export const NavWrapper = styled.div`
@@ -17,3 +12,6 @@ export const NavWrapper = styled.div`
 `;
 
 export const MainContentWrapper = styled.section``;
+
+// @media (min-width: ${({ theme }) => theme.breakpoints.md}) {
+// }

@@ -6,6 +6,10 @@ export const Wrapper = styled.section`
   flex-wrap: wrap;
   row-gap: 16px;
   column-gap: 24px;
-  max-width: 1640px;
   width: 100%;
+  max-width: 1400px;
+
+  @media (min-width: ${({ theme }) => theme.breakpoints.xxl}) {
+    max-width: 1640px;
+  }
 `;

@@ -14,6 +14,12 @@ export const Wrapper = styled.article`
   width: 343px;
   padding: 16px;
   border-radius: 32px;
+
+  @media (min-width: ${({ theme }) => theme.breakpoints.xxl}) {
+    height: 665px;
+    width: 520px;
+    padding: 32px;
+  }
 `;
 
 export const Background = styled.div`
@@ -37,6 +43,11 @@ export const Image = styled.div<ImageProps>`
   border-radius: 32px;
   background: url(${({ imageUrl }) => imageUrl}) no-repeat;
   background-size: cover;
+
+  @media (min-width: ${({ theme }) => theme.breakpoints.xxl}) {
+    width: 100%;
+    height: 265px;
+  }
 `;
 
 export const StyledOverlineWrapper = styled.div`
@@ -46,6 +57,10 @@ export const StyledOverlineWrapper = styled.div`
 export const StyledOverlineText = styled(Typography)`
   margin: 16px 0;
   color: ${({ theme }) => theme.colors.darkSoft};
+
+  @media (min-width: ${({ theme }) => theme.breakpoints.xxl}) {
+    margin: 32px 0 16px;
+  }
 `;
 
 interface IconButtonStyles {
@@ -106,5 +121,9 @@ export const StyledReadMoreButton = styled.a`
 
   span {
     ${({ theme }) => theme.mixins.typography.buttonText};
+  }
+
+  @media (min-width: ${({ theme }) => theme.breakpoints.xxl}) {
+    margin: 39px auto 48px;
   }
 `;

@@ -27,10 +27,10 @@ function App() {
   return (
     <HelmetProvider>
       <QueryClientProvider client={queryClient}>
-        <ThemeProvider theme={theme}>
-          <GlobalStyles theme={theme} />
-          <InitialHelmet />
-          <AppProvider>
+        <AppProvider>
+          <ThemeProvider theme={theme}>
+            <GlobalStyles theme={theme} />
+            <InitialHelmet />
             <Router>
               <Wrapper>
                 <BackgroundWrapper>
@@ -44,8 +44,8 @@ function App() {
                 <FavoritesItemsWidget />
               </Wrapper>
             </Router>
-          </AppProvider>
-        </ThemeProvider>
+          </ThemeProvider>
+        </AppProvider>
       </QueryClientProvider>
     </HelmetProvider>
   );

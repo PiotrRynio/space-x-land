@@ -25,7 +25,7 @@ export type Theme = {
   };
   fontSize: { xl: string; md: string; sm: string; xs: string; lg: string; xxl: string };
   lineHeight: { xl: string; md: string; sm: string; lg: string };
-  breakpoints: { xl: string; md: string; sm: string; lg: string };
+  breakpoints: { xl: string; md: string; sm: string; lg: string; xxl: string };
   fontStyle: { normal: string };
   colors: {
     secondary: string;
