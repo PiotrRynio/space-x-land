@@ -56,7 +56,9 @@ const Searcher = () => {
             {isSearcherActive ? <CloseIcon /> : <SearchIcon />}
           </SearchIconContainer>
         </SearchButton>
-        {isSearcherActive && <SearchedItemsList resetAndBlurSearcher={resetAndBlurSearcher} />}
+        {isSearcherActive && searcherInputText && (
+          <SearchedItemsList resetAndBlurSearcher={resetAndBlurSearcher} />
+        )}
       </LabelWrapper>
       <BlurWrapper onClick={handlerBlurWrapperClick} isSearcherActive={isSearcherActive} />
     </>
