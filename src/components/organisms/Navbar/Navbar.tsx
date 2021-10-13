@@ -24,13 +24,14 @@ const Navbar = () => {
       <FixedWrapper>
         <HelperDiv />
         <Searcher />
-        <FavouritesButton
-          isFavoritesIconInverted={isFavoritesItemsWidgetOpen}
-          onClick={handleFavouritesButtonClick}
-        >
-          {isFavoritesItemsWidgetOpen ? <PlusIcon /> : <FavouritesIcon />}
-        </FavouritesButton>
+        <HelperDiv />
       </FixedWrapper>
+      <FavouritesButton
+        isFavoritesIconInverted={isFavoritesItemsWidgetOpen}
+        onClick={handleFavouritesButtonClick}
+      >
+        {isFavoritesItemsWidgetOpen ? <PlusIcon /> : <FavouritesIcon />}
+      </FavouritesButton>
     </Wrapper>
   );
 };

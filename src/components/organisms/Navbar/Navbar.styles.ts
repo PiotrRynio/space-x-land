@@ -58,7 +58,7 @@ export const FixedWrapper = styled.div`
   margin: 48px 0;
 
   @media (min-width: ${({ theme }) => theme.breakpoints.xl}) {
-    z-index: 100;
+    z-index: 20;
     position: fixed;
     left: 387px;
     right: 140px;
@@ -113,8 +113,9 @@ export const FavouritesButton = styled.button<NavbarStyles>`
   }
 
   @media (min-width: ${({ theme }) => theme.breakpoints.xl}) {
-    position: relative;
-    inset: 0;
+    top: 78px;
+    right: 140px;
+    bottom: unset;
   }
 `;
 
