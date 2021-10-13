@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 import Typography from 'components/atoms/Typography/Typography';
 import { RiDeleteBinLine } from 'react-icons/ri';
 
@@ -10,9 +10,41 @@ interface SpacecraftItemImageStyles {
   imageUrl: string;
 }
 
+const openAnimationIn = keyframes`
+  0% {
+    visibility: hidden;
+    opacity: 0;
+  }
+  1% {
+    visibility: visible;
+    opacity: 0;
+  }
+  100% {
+    visibility: visible;
+    opacity: 100%;
+  }
+`;
+
+const openAnimationOut = keyframes`
+  0% {
+    visibility: visible;
+    opacity: 100%;
+  }
+  99% {
+    visibility: visible;
+    opacity: 0;
+  }
+  100% {
+    visibility: hidden;
+    opacity: 0;
+  }
+`;
+
 export const Wrapper = styled.section<FavoritesItemsWidgetStyles>`
   z-index: 35;
-  display: ${({ isFavoritesItemsWidgetOpen }) => (isFavoritesItemsWidgetOpen ? 'flex' : 'none')};
+  display: flex;
+  visibility: ${({ isFavoritesItemsWidgetOpen }) =>
+    isFavoritesItemsWidgetOpen ? 'visible' : 'hidden'};
   flex-direction: column;
   position: fixed;
   top: 0;
@@ -24,6 +56,11 @@ export const Wrapper = styled.section<FavoritesItemsWidgetStyles>`
   padding: 24px 16px;
   border-radius: 32px 0 0 32px;
   background: ${({ theme }) => theme.colors.primary};
+
+  animation-duration: .3s;
+  animation-timing-function: ease-out;
+  animation-name: ${({ isFavoritesItemsWidgetOpen }) =>
+    isFavoritesItemsWidgetOpen ? openAnimationIn : openAnimationOut}};
 `;
 
 export const Title = styled(Typography)`
@@ -43,17 +80,21 @@ export const SpacecraftItemsListWrapper = styled.ul`
   ::-webkit-scrollbar {
     width: 6px;
   }
+
   ::-webkit-scrollbar-track {
     border: none;
   }
+
   ::-webkit-scrollbar-thumb {
     background: ${({ theme }) => theme.colors.secondary};
     -webkit-box-shadow: inset 0 0 6px ${({ theme }) => theme.colors.secondary};
   }
+
   ::-webkit-scrollbar-thumb:hover {
     background: ${({ theme }) => theme.colors.secondary};
     -webkit-box-shadow: inset 0 0 6px ${({ theme }) => theme.colors.secondary};
   }
+
   ::-webkit-scrollbar-thumb:window-inactive {
     background: ${({ theme }) => theme.colors.secondary};
   }
