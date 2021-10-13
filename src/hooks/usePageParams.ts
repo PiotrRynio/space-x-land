@@ -10,7 +10,7 @@ export const usePageParams = () => {
     page: String(parsedSearch.page ?? '1'),
   };
 
-  const setPageParams = (newPageNumber) => {
+  const setPageParams = (newPageNumber: number) => {
     const newValues = {
       page: String(newPageNumber),
     };

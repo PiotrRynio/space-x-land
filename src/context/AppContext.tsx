@@ -6,6 +6,8 @@ type AppContextType = {
   setPagesNumber: (newPagesNumber: number) => void;
   searcherInputText: string;
   setSearcherInputText: (newSearcherInputText: string) => void;
+  isFavoritesItemsWidgetOpen: boolean;
+  setIsFavoritesItemsWidgetOpen: (newSearcherInputText: boolean) => void;
 };
 
 const appContextDefaultValue = {
@@ -14,12 +16,19 @@ const appContextDefaultValue = {
   setPagesNumber: () => {},
   searcherInputText: '',
   setSearcherInputText: () => {},
+  isFavoritesItemsWidgetOpen: false,
+  setIsFavoritesItemsWidgetOpen: () => {},
 };
 const AppContext = createContext<AppContextType>(appContextDefaultValue);
 
 export const AppProvider = ({ children }: { children: React.ReactNode }) => {
   const [pagesNumber, setPagesNumber] = useState<number>(appContextDefaultValue.pagesNumber);
-  const [searcherInputText, setSearcherInputText] = useState<string>('');
+  const [searcherInputText, setSearcherInputText] = useState<string>(
+    appContextDefaultValue.searcherInputText,
+  );
+  const [isFavoritesItemsWidgetOpen, setIsFavoritesItemsWidgetOpen] = useState<boolean>(
+    appContextDefaultValue.isFavoritesItemsWidgetOpen,
+  );
 
   const itemsNumberOnPage = appContextDefaultValue.itemsNumberOnPage;
 
@@ -31,6 +40,8 @@ export const AppProvider = ({ children }: { children: React.ReactNode }) => {
         itemsNumberOnPage,
         searcherInputText,
         setSearcherInputText,
+        isFavoritesItemsWidgetOpen,
+        setIsFavoritesItemsWidgetOpen,
       }}
     >
       {children}

@@ -8,6 +8,7 @@ import { GlobalStyles } from 'assets/styles/GlobalStyles';
 import { AppProvider } from 'context/AppContext';
 import Home from 'views/Home/Home';
 import Navbar from 'components/organisms/Navbar/Navbar';
+import FavoritesItemsWidget from 'components/organisms/FavoriesItemsWidget/FavoritesItemsWidget';
 import { MainContentWrapper, NavWrapper, Wrapper } from './App.styles';
 import BackgroundWrapper from './BackgroundWrapper';
 
@@ -25,10 +26,10 @@ const InitialHelmet = () => (
 function App() {
   return (
     <HelmetProvider>
-      <InitialHelmet />
       <QueryClientProvider client={queryClient}>
         <ThemeProvider theme={theme}>
-          <GlobalStyles />
+          <GlobalStyles theme={theme} />
+          <InitialHelmet />
           <AppProvider>
             <Router>
               <Wrapper>
@@ -40,6 +41,7 @@ function App() {
                     <Home />
                   </MainContentWrapper>
                 </BackgroundWrapper>
+                <FavoritesItemsWidget />
               </Wrapper>
             </Router>
           </AppProvider>

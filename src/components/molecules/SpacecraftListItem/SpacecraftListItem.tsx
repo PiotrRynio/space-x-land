@@ -1,15 +1,20 @@
 import React from 'react';
+import { useFavoritesItems } from 'hooks/useFavoritesItems';
+import { TypographyTag } from 'components/atoms/Typography/TypographyTags';
 import {
   Background,
   Image,
   Wrapper,
   InnerWrapper,
-  StyledBody1,
-  StyledOverline,
+  StyledOverlineWrapper,
+  StyledOverlineText,
   StyledHeading6,
-  StyledButton,
+  StyledBody1,
+  StyledReadMoreButton,
+  IconButton,
+  LikeIcon,
+  BinIcon,
 } from './SpacecraftListItem.styles';
-import { TypographyTag } from 'components/atoms/Typography/TypographyTags';
 import { SpacecraftListItemProps } from './SpacecraftListItemProps';
 
 const SpacecraftListItem = ({
@@ -18,23 +23,34 @@ const SpacecraftListItem = ({
   date,
   title,
   imageUrl,
+  id,
 }: SpacecraftListItemProps) => {
+  const { isFavoritesItems, addFavoritesItems, removeFavoritesItems } = useFavoritesItems();
+
+  const handleLikeButtonClick = () =>
+    isFavoritesItems(id) ? removeFavoritesItems(id) : addFavoritesItems(id);
+
   return (
     <Wrapper>
-      <Background />
       <InnerWrapper>
         <Image imageUrl={imageUrl} />
-        <StyledOverline typographyTag={TypographyTag.OVERLINE}>{date}</StyledOverline>
+        <StyledOverlineWrapper>
+          <StyledOverlineText typographyTag={TypographyTag.OVERLINE}>{date}</StyledOverlineText>
+          <IconButton isInverted={isFavoritesItems(id)} onClick={handleLikeButtonClick}>
+            {isFavoritesItems(id) ? <BinIcon /> : <LikeIcon />}
+          </IconButton>
+        </StyledOverlineWrapper>
         <header>
           <StyledHeading6 typographyTag={TypographyTag.HEADING_6}>{title}</StyledHeading6>
         </header>
         <StyledBody1 typographyTag={TypographyTag.BODY_1}>
           {articleText || 'No information in our API'}
         </StyledBody1>
-        <StyledButton href={externalLinkUrl}>
+        <StyledReadMoreButton href={externalLinkUrl}>
           <span>Read more</span>
-        </StyledButton>
+        </StyledReadMoreButton>
       </InnerWrapper>
+      <Background />
     </Wrapper>
   );
 };

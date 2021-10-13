@@ -1,5 +1,7 @@
 import styled from 'styled-components';
 import { Typography } from 'components/atoms/Typography/Typography';
+import { FaRegHeart } from 'react-icons/fa';
+import { RiDeleteBinLine } from 'react-icons/ri';
 
 interface ImageProps {
   imageUrl: string;
@@ -37,9 +39,48 @@ export const Image = styled.div<ImageProps>`
   background-size: cover;
 `;
 
-export const StyledOverline = styled(Typography)`
+export const StyledOverlineWrapper = styled.div`
+  position: relative;
+`;
+
+export const StyledOverlineText = styled(Typography)`
   margin: 16px 0;
   color: ${({ theme }) => theme.colors.darkSoft};
+`;
+
+interface IconButtonStyles {
+  isInverted: boolean;
+}
+
+export const IconButton = styled.button<IconButtonStyles>`
+  ${({ theme }) => theme.mixins.positions.center}
+  position: absolute;
+  top: 0;
+  right: 16px;
+  height: 48px;
+  width: 48px;
+  border: 1px solid
+    ${({ theme, isInverted }) => (isInverted ? theme.colors.secondary : theme.colors.primary)};
+  border-radius: 50%;
+  background-color: transparent;
+  cursor: pointer;
+
+  :hover {
+    background-color: ${({ theme }) => theme.colors.lightHard};
+    border: 1px solid ${({ theme }) => theme.colors.lightHard};
+  }
+`;
+
+export const LikeIcon = styled(FaRegHeart)`
+  height: 18px;
+  width: 18px;
+  color: ${({ theme }) => theme.colors.primary};
+`;
+
+export const BinIcon = styled(RiDeleteBinLine)`
+  height: 18px;
+  width: 18px;
+  color: ${({ theme }) => theme.colors.secondary};
 `;
 
 export const StyledHeading6 = styled(Typography)`
@@ -53,7 +94,7 @@ export const StyledBody1 = styled(Typography)`
   color: ${({ theme }) => theme.colors.lightMedium};
 `;
 
-export const StyledButton = styled.a`
+export const StyledReadMoreButton = styled.a`
   ${({ theme }) => theme.mixins.positions.center}
   height: 48px;
   width: 200px;
