@@ -44,7 +44,7 @@ export const SpacecraftItemsListWrapper = styled.ul`
     width: 6px;
   }
   ::-webkit-scrollbar-track {
-    border-left: 1px solid #000;
+    border: none;
   }
   ::-webkit-scrollbar-thumb {
     background: ${({ theme }) => theme.colors.secondary};
