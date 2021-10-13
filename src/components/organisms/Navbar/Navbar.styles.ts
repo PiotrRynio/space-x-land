@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 import { AiOutlinePlus } from 'react-icons/ai';
 import { FaRegHeart } from 'react-icons/fa';
 import logo from 'assets/images/logo.svg';
@@ -6,6 +6,27 @@ import logo from 'assets/images/logo.svg';
 interface NavbarStyles {
   isFavoritesIconInverted: boolean;
 }
+
+const rotateAnimationIn = keyframes`
+
+   from {
+     transform: rotate(0deg);
+   }
+   to {
+     transform: rotate(360deg);
+   }
+ 
+`;
+
+const rotateAnimationOut = keyframes`
+
+   from {
+     transform: rotate(0deg);
+   }
+   to {
+     transform: rotate(360deg);
+   }
+`;
 
 export const Wrapper = styled.nav`
   ${({ theme }) => theme.mixins.positions.center};
@@ -79,6 +100,19 @@ export const FavouritesButton = styled.button<NavbarStyles>`
   border-radius: 50%;
   background: ${({ theme, isFavoritesIconInverted }) =>
     isFavoritesIconInverted ? theme.colors.lightHard : theme.colors.primary};
+  transition: transform 0.5s;
+  cursor: pointer;
+
+  animation-name: ${rotateAnimationOut};
+  animation-duration: 0.3s;
+
+  :hover {
+    background: ${({ theme, isFavoritesIconInverted }) =>
+      isFavoritesIconInverted ? theme.colors.lightHard : `#BFFFFF`};
+
+    animation-name: ${rotateAnimationIn};
+    animation-duration: 0.3s;
+  }
 
   @media (min-width: ${({ theme }) => theme.breakpoints.xl}) {
     position: relative;

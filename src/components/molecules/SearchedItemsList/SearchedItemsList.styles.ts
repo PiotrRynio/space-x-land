@@ -11,7 +11,6 @@ export const Wrapper = styled.ul`
   flex-direction: column;
   justify-content: space-between;
   align-items: flex-start;
-  //gap: 16px;
   position: absolute;
   top: calc(100% + 12px);
   width: 100%;
@@ -36,6 +35,7 @@ export const ListItemLink = styled.a`
   border-radius: 32px;
   text-decoration: none;
   cursor: pointer;
+  transition: background 0.3s ease-out;
 
   &:hover {
     background: ${({ theme }) => theme.colors.outline};
