@@ -23,15 +23,15 @@ const FavoritesItemsWidget = () => {
 
   const favoritesItemsList = data
     ?.filter((spacecraftListItem) => isFavoritesItems(spacecraftListItem.id))
-    .map(({ id, imageUrl, title }) => (
+    .map(({ id, imageUrl, title, externalLinkUrl }) => (
       <SpacecraftItem key={id}>
-        <ItemLink>
+        <ItemLink href={externalLinkUrl} target={'_blank'}>
           <ItemImage imageUrl={imageUrl} />
           <ItemTitle typographyTag={TypographyTag.BODY_1}>{title}</ItemTitle>
-          <ItemIconButton onClick={() => removeFavoritesItems(id)}>
-            <BinIcon />
-          </ItemIconButton>
         </ItemLink>
+        <ItemIconButton onClick={() => removeFavoritesItems(id)}>
+          <BinIcon />
+        </ItemIconButton>
       </SpacecraftItem>
     ));
 
