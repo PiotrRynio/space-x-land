@@ -1,6 +1,7 @@
 import { css } from 'styled-components';
+import { Theme } from './themeType';
 
-export const theme: any = {
+export const theme: Theme = {
   breakpoints: {
     sm: '560px',
     md: '768px',
