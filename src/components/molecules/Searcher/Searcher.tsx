@@ -8,11 +8,11 @@ import {
   SearchIcon,
   SearchButton,
   BlurWrapper,
-  PlusIcon,
+  CloseIcon,
 } from './Searcher.styles';
 import { TypographyTag } from 'components/atoms/Typography/TypographyTags';
 import SearchedItemsList from 'components/molecules/SearchedItemsList/SearchedItemsList';
-import { useAppContext } from '../../../context/AppContext';
+import { useAppContext } from 'context/AppContext';
 
 const Searcher = () => {
   const { searcherInputText, setSearcherInputText } = useAppContext();
@@ -34,6 +34,10 @@ const Searcher = () => {
     resetAndBlurSearcher();
   };
 
+  const handlerCloseIconClick = () => {
+    resetAndBlurSearcher();
+  };
+
   return (
     <>
       <LabelWrapper>
@@ -47,9 +51,9 @@ const Searcher = () => {
             onFocus={handleFocus}
           />
         </InnerWrapper>
-        <SearchButton>
+        <SearchButton onClick={handlerCloseIconClick}>
           <SearchIconContainer isSearcherActive={isSearcherActive}>
-            {isSearcherActive ? <PlusIcon /> : <SearchIcon />}
+            {isSearcherActive ? <CloseIcon /> : <SearchIcon />}
           </SearchIconContainer>
         </SearchButton>
         {isSearcherActive && <SearchedItemsList resetAndBlurSearcher={resetAndBlurSearcher} />}

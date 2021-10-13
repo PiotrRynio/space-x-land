@@ -72,7 +72,7 @@ export const SearchIcon = styled(FaSearch)`
   color: ${({ theme }) => theme.colors.lightHard};
 `;
 
-export const PlusIcon = styled(AiOutlinePlus)`
+export const CloseIcon = styled(AiOutlinePlus)`
   height: 18px;
   width: 18px;
   transform: rotate(45deg);
