@@ -89,7 +89,7 @@ export const ItemImage = styled.div<SpacecraftItemImageStyles>`
   height: 70px;
   border-radius: 8px;
   border: 2px solid ${({ theme }) => theme.colors.lightHard};
-  background: url(${({ imageUrl }) => imageUrl}) no-repeat;
+  background: ${({ theme }) => theme.colors.surface} url(${({ imageUrl }) => imageUrl}) no-repeat;
   background-size: cover;
 `;
 
