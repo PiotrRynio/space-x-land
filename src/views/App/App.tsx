@@ -9,7 +9,7 @@ import { AppProvider } from 'context/AppContext';
 import Home from 'views/Home/Home';
 import Navbar from 'components/organisms/Navbar/Navbar';
 import FavoritesItemsWidget from 'components/organisms/FavoriesItemsWidget/FavoritesItemsWidget';
-import { MainContentWrapper, NavWrapper, Wrapper } from './App.styles';
+import { NavWrapper, Wrapper } from './App.styles';
 import BackgroundWrapper from './BackgroundWrapper';
 
 const queryClient = new QueryClient();
@@ -37,9 +37,7 @@ function App() {
                   <NavWrapper>
                     <Navbar />
                   </NavWrapper>
-                  <MainContentWrapper>
-                    <Home />
-                  </MainContentWrapper>
+                  <Home />
                 </BackgroundWrapper>
                 <FavoritesItemsWidget />
               </Wrapper>

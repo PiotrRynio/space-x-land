@@ -1,7 +1,15 @@
 import React from 'react';
 import { useAppContext } from 'context/AppContext';
 import Searcher from 'components/molecules/Searcher/Searcher';
-import { Wrapper, Image, FavouritesIcon, FavouritesButton, PlusIcon } from './Navbar.styles';
+import {
+  Wrapper,
+  Logo,
+  FavouritesIcon,
+  FavouritesButton,
+  PlusIcon,
+  FixedWrapper,
+  HelperDiv,
+} from './Navbar.styles';
 
 const Navbar = () => {
   const { isFavoritesItemsWidgetOpen, setIsFavoritesItemsWidgetOpen } = useAppContext();
@@ -12,14 +20,17 @@ const Navbar = () => {
 
   return (
     <Wrapper>
-      <Image />
-      <Searcher />
-      <FavouritesButton
-        isFavoritesIconInverted={isFavoritesItemsWidgetOpen}
-        onClick={handleFavouritesButtonClick}
-      >
-        {isFavoritesItemsWidgetOpen ? <PlusIcon /> : <FavouritesIcon />}
-      </FavouritesButton>
+      <Logo />
+      <FixedWrapper>
+        <HelperDiv />
+        <Searcher />
+        <FavouritesButton
+          isFavoritesIconInverted={isFavoritesItemsWidgetOpen}
+          onClick={handleFavouritesButtonClick}
+        >
+          {isFavoritesItemsWidgetOpen ? <PlusIcon /> : <FavouritesIcon />}
+        </FavouritesButton>
+      </FixedWrapper>
     </Wrapper>
   );
 };

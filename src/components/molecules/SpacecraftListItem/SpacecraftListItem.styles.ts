@@ -98,13 +98,16 @@ export const BinIcon = styled(RiDeleteBinLine)`
   color: ${({ theme }) => theme.colors.secondary};
 `;
 
+export const ArticleContent = styled.article`
+  overflow: hidden;
+  height: 123px;
+`;
+
 export const StyledHeading6 = styled(Typography)`
-  height: 26px;
+  padding-right: 75px;
 `;
 
 export const StyledBody1 = styled(Typography)`
-  overflow: hidden;
-  height: 97px;
   width: 100%;
   color: ${({ theme }) => theme.colors.lightMedium};
 `;

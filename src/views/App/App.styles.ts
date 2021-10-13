@@ -10,8 +10,3 @@ export const Wrapper = styled.div`
 export const NavWrapper = styled.div`
   width: 100%;
 `;
-
-export const MainContentWrapper = styled.section``;
-
-// @media (min-width: ${({ theme }) => theme.breakpoints.md}) {
-// }

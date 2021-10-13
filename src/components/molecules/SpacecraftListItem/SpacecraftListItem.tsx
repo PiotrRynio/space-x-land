@@ -14,6 +14,7 @@ import {
   IconButton,
   LikeIcon,
   BinIcon,
+  ArticleContent,
 } from './SpacecraftListItem.styles';
 import { SpacecraftListItemProps } from './SpacecraftListItemProps';
 
@@ -40,12 +41,14 @@ const SpacecraftListItem = ({
             {isFavoritesItems(id) ? <BinIcon /> : <LikeIcon />}
           </IconButton>
         </StyledOverlineWrapper>
-        <header>
-          <StyledHeading6 typographyTag={TypographyTag.HEADING_6}>{title}</StyledHeading6>
-        </header>
-        <StyledBody1 typographyTag={TypographyTag.BODY_1}>
-          {articleText || 'No information in our API'}
-        </StyledBody1>
+        <ArticleContent>
+          <header>
+            <StyledHeading6 typographyTag={TypographyTag.HEADING_6}>{title}</StyledHeading6>
+          </header>
+          <StyledBody1 typographyTag={TypographyTag.BODY_1}>
+            {articleText || 'No information in our API'}
+          </StyledBody1>
+        </ArticleContent>
         <StyledReadMoreButton href={externalLinkUrl}>
           <span>Read more</span>
         </StyledReadMoreButton>

@@ -12,15 +12,56 @@ export const Wrapper = styled.nav`
   flex-direction: column;
   width: 100%;
   margin: 24px 0 48px;
+
+  @media (min-width: ${({ theme }) => theme.breakpoints.md}) {
+    flex-direction: row;
+    gap: 40px;
+  }
+  @media (min-width: ${({ theme }) => theme.breakpoints.xl}) {
+    display: flex;
+    gap: 0;
+    justify-content: flex-start;
+  }
 `;
 
-export const Image = styled.div`
+export const Logo = styled.div`
   height: 123px;
   width: 100%;
   max-height: 100%;
   max-width: 343px;
   background: url(${logo}) no-repeat;
   background-size: contain;
+`;
+
+export const FixedWrapper = styled.div`
+  ${({ theme }) => theme.mixins.positions.center};
+  flex-direction: row;
+  width: 100%;
+  margin: 48px 0;
+
+  @media (min-width: ${({ theme }) => theme.breakpoints.xl}) {
+    z-index: 100;
+    position: fixed;
+    left: 387px;
+    right: 140px;
+    width: auto;
+    gap: 40px;
+    justify-content: space-between;
+  }
+
+  @media (min-width: ${({ theme }) => theme.breakpoints.xxl}) {
+    left: 140px;
+  }
+`;
+
+export const HelperDiv = styled.div`
+  display: none;
+  height: 48px;
+  width: 48px;
+
+  @media (min-width: ${({ theme }) => theme.breakpoints.xl}) {
+    display: block;
+  }
 `;
 
 export const FavouritesButton = styled.button<NavbarStyles>`
@@ -38,6 +79,11 @@ export const FavouritesButton = styled.button<NavbarStyles>`
   border-radius: 50%;
   background: ${({ theme, isFavoritesIconInverted }) =>
     isFavoritesIconInverted ? theme.colors.lightHard : theme.colors.primary};
+
+  @media (min-width: ${({ theme }) => theme.breakpoints.xl}) {
+    position: relative;
+    inset: 0;
+  }
 `;
 
 export const FavouritesIcon = styled(FaRegHeart)`

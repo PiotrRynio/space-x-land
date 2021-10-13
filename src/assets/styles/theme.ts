@@ -6,7 +6,7 @@ export const theme: Theme = {
     sm: '560px',
     md: '768px',
     lg: '1024px',
-    xl: '1280px',
+    xl: '1260px',
     xxl: '1900px',
   },
   letterSpacing: {

@@ -13,13 +13,15 @@ export const LabelWrapper = styled.label`
   height: 66px;
   width: 100%;
   max-width: 343px;
-  margin: 48px 0 0;
   border-radius: 33px;
   background: ${({ theme }) => theme.colors.lightHard};
 
   @media (min-width: ${({ theme }) => theme.breakpoints.md}) {
-    margin: 48px 0 0;
     max-width: 737px;
+  }
+
+  @media (min-width: ${({ theme }) => theme.breakpoints.xl}) {
+    flex-shrink: 10;
   }
 `;
 
