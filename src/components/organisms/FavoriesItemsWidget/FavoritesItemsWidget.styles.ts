@@ -10,7 +10,16 @@ interface SpacecraftItemImageStyles {
   imageUrl: string;
 }
 
-const openAnimationIn = keyframes`
+const hoverItemAnimationIn = keyframes`
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 100%;
+  }
+`;
+
+const openWidgetAnimationIn = keyframes`
   0% {
     visibility: hidden;
     opacity: 0;
@@ -25,7 +34,7 @@ const openAnimationIn = keyframes`
   }
 `;
 
-const openAnimationOut = keyframes`
+const openWidgetAnimationOut = keyframes`
   0% {
     visibility: visible;
     opacity: 100%;
@@ -60,7 +69,7 @@ export const Wrapper = styled.section<FavoritesItemsWidgetStyles>`
   animation-duration: .3s;
   animation-timing-function: ease-out;
   animation-name: ${({ isFavoritesItemsWidgetOpen }) =>
-    isFavoritesItemsWidgetOpen ? openAnimationIn : openAnimationOut}};
+    isFavoritesItemsWidgetOpen ? openWidgetAnimationIn : openWidgetAnimationOut}};
 `;
 
 export const Title = styled(Typography)`
@@ -112,7 +121,7 @@ export const ItemLink = styled.a`
   gap: 16px;
   text-decoration: none;
 
-  &:hover::after {
+  :hover::after {
     z-index: -10;
     position: absolute;
     top: -10px;
@@ -121,7 +130,10 @@ export const ItemLink = styled.a`
     width: 100%;
     border-radius: 30px 0 0 30px;
     content: '';
+    transition: after 0.3s ease-out;
     background-color: ${({ theme }) => theme.colors.surface};
+
+    animation: ${hoverItemAnimationIn} 0.5s ease-out both;
   }
 `;
 
