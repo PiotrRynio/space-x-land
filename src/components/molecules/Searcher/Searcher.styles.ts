@@ -71,7 +71,6 @@ export const SearchIconContainer = styled.div<SearcherStylesProps>`
   border-radius: 50%;
   background-color: ${({ theme, isSearcherActive }) =>
     isSearcherActive ? theme.colors.primary : theme.colors.secondary};
-  transform: rotate(45deg);
 `;
 
 export const SearchIcon = styled(FaSearch)`
@@ -84,6 +83,7 @@ export const CloseIcon = styled(AiOutlinePlus)`
   height: 18px;
   width: 18px;
   color: ${({ theme }) => theme.colors.darkMedium};
+  transform: rotate(45deg);
 `;
 
 export const BlurWrapper = styled.div<SearcherStylesProps>`
