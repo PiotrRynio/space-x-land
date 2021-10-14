@@ -8,10 +8,10 @@ export type FetchingInformationTextProps = {
 
 const FetchingInformation = ({ error, isLoading }: FetchingInformationTextProps) => {
   if (error) {
-    return <StyledText>Api error...</StyledText>;
+    return <StyledText role="status">Api error...</StyledText>;
   }
   if (isLoading) {
-    return <StyledText>Loading...</StyledText>;
+    return <StyledText role="status">Loading...</StyledText>;
   }
   return <></>;
 };

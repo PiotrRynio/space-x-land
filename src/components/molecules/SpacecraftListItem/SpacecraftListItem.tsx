@@ -41,7 +41,7 @@ const SpacecraftListItem = ({
             {isFavoritesItems(id) ? <BinIcon /> : <LikeIcon />}
           </IconButton>
         </StyledOverlineWrapper>
-        <ArticleContent>
+        <ArticleContent role="article">
           <header>
             <StyledHeading6 typographyTag={TypographyTag.HEADING_6}>{title}</StyledHeading6>
           </header>
