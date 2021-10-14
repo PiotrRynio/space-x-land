@@ -1,4 +1,5 @@
 import { render, screen, waitForElementToBeRemoved } from '@testing-library/react';
+import { within } from '@testing-library/react';
 import { setupServer } from 'msw/node';
 import { handlers } from 'mock/msw/handlers/space-x-land/handlers';
 import Home from './Home';
@@ -16,10 +17,9 @@ describe('Home page:', () => {
       toBeWrappedComponent: <Home />,
     });
     render(componentWithTestsWrappers());
-    const displayedStatus = screen.getByRole(`status`);
+    const displayedStatus = screen.queryByRole(`status`);
 
-    const searchedText = /Loading.../i;
-    expect(displayedStatus).toHaveTextContent(searchedText);
+    expect(displayedStatus).toHaveTextContent(/Loading.../i);
   });
 
   test(`when spacecrafts items are fetched, then list of items is displayed`, async () => {
@@ -30,13 +30,25 @@ describe('Home page:', () => {
 
     await waitForElementToBeRemoved(() => screen.getByRole(`status`));
 
-    const country1 = screen.queryByText(/Second GTO launch for Falcon 9/i);
-    const country2 = screen.queryByText(/Total payload mass was 2,034 kg/i);
-    const country3 = screen.queryByText(/failure at 33 seconds/i);
-    const country4 = screen.queryByText(/Commercial mission and first Falcon 9/i);
-    expect(country1).toBeInTheDocument();
-    expect(country2).toBeInTheDocument();
-    expect(country3).toBeInTheDocument();
-    expect(country4).toBeInTheDocument();
+    const article1 = screen.queryByText(/Second GTO launch for Falcon 9/i);
+    const article2 = screen.queryByText(/Total payload mass was 2,034 kg/i);
+    const article3 = screen.queryByText(/failure at 33 seconds/i);
+    const article4 = screen.queryByText(/Commercial mission and first Falcon 9/i);
+    expect(article1).toBeInTheDocument();
+    expect(article2).toBeInTheDocument();
+    expect(article3).toBeInTheDocument();
+    expect(article4).toBeInTheDocument();
+  });
+
+  test(`when spacecrafts items are fetched, then in list is 6 items`, async () => {
+    const { componentWithTestsWrappers } = addTestsWrappers({
+      toBeWrappedComponent: <Home />,
+    });
+    render(componentWithTestsWrappers());
+
+    await waitForElementToBeRemoved(() => screen.queryByRole(`status`));
+
+    const spacecraftItems = screen.queryAllByTestId('spacecraft-list-item');
+    expect(spacecraftItems.length).toBe(6);
   });
 });

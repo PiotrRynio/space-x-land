@@ -25,6 +25,7 @@ const SpacecraftListItem = ({
   title,
   imageUrl,
   id,
+  ...props
 }: SpacecraftListItemProps) => {
   const { isFavoritesItems, addFavoritesItems, removeFavoritesItems } = useFavoritesItems();
 
@@ -32,7 +33,7 @@ const SpacecraftListItem = ({
     isFavoritesItems(id) ? removeFavoritesItems(id) : addFavoritesItems(id);
 
   return (
-    <Wrapper>
+    <Wrapper data-testid="spacecraft-list-item">
       <InnerWrapper>
         <Image imageUrl={imageUrl} />
         <StyledOverlineWrapper>

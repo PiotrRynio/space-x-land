@@ -6,7 +6,6 @@ import { Wrapper } from './Home.styles';
 const Home = () => {
   return (
     <Wrapper>
-      sdd
       <SpacecraftList />
       <Paginator />
     </Wrapper>
