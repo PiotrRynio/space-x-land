@@ -71,6 +71,7 @@ export const SearchIconContainer = styled.div<SearcherStylesProps>`
   border-radius: 50%;
   background-color: ${({ theme, isSearcherActive }) =>
     isSearcherActive ? theme.colors.primary : theme.colors.secondary};
+  transform: rotate(45deg);
 `;
 
 export const SearchIcon = styled(FaSearch)`

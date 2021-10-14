@@ -135,6 +135,10 @@ export const ItemLink = styled.a`
 
     animation: ${hoverItemAnimationIn} 0.5s ease-out both;
   }
+
+  &:hover > div {
+    border: 2px solid ${({ theme }) => theme.colors.secondary};
+  }
 `;
 
 export const ItemImage = styled.div<SpacecraftItemImageStyles>`

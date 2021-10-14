@@ -40,6 +40,10 @@ export const ListItemLink = styled.a`
   &:hover {
     background: ${({ theme }) => theme.colors.outline};
   }
+
+  &:hover > div {
+    border: 2px solid ${({ theme }) => theme.colors.primary};
+  }
 `;
 
 export const ListItemImage = styled.div<ImageProps>`
