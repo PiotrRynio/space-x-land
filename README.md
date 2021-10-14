@@ -14,9 +14,9 @@ positions from the list. Found elements are displayed in the suggestion bar. Pag
 is fully responsive - Coded in TypeScript with use of good practice of clean code. Code formatted with use of Prettier.
 Which spaceship would you like to know about first?
 
-Demo on Netlify: [LINK](https://space-x-land.netlify.app/)
-API URL: [SpaceX REST API](https://api.spacex.land/rest/#/)
-Repo url: [SpaceX REST API](https://github.com/PiotrRynio/space-x-land)
+- Demo on Netlify: [LINK](https://space-x-land.netlify.app/)
+- API URL: [SpaceX REST API](https://api.spacex.land/rest/#/)
+- Repo url: [SpaceX REST API](https://github.com/PiotrRynio/space-x-land)
 
 ###### The following technologies/libraries/methodologies were used:
 
