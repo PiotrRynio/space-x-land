@@ -17,7 +17,7 @@ Which spaceship would you like to know about first?
 - Graphic design: [LINK](https://xd.adobe.com/view/e78dfaa1-f6da-43ad-b47e-0b5c0f27524b-b2de/?x_product=cc-slack%2F1.5.1)
 - API URL: [SpaceX REST API](https://api.spacex.land/rest/#/)
 - Demo on Netlify: [LINK](https://space-x-land.netlify.app/)
-- Repo url: [SpaceX REST API](https://github.com/PiotrRynio/space-x-land)
+- Repo url: [LINK](https://github.com/PiotrRynio/space-x-land)
 
 ###### The following technologies/libraries/methodologies were used:
 
