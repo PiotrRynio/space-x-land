@@ -27,6 +27,9 @@ Which spaceship would you like to know about first?
 - react hooks
 - TypeScript
 - Styled Components
+- react testing library
+- jest-dom testing library
+- MSW - Mock Service Worker (API queries mocking)
 - Prettier
 - Husky (pre-commit)
 - lint-staged
